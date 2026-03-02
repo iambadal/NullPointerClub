@@ -1,0 +1,118 @@
+/* Navbar */
+.navbar {
+  height: 70px;
+  width: 100%;
+  padding: 0 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(5, 10, 25, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  transition: transform 0.35s ease-in-out;
+}
+
+/* Base Link */
+.nav-link {
+  text-decoration: none;
+  color: #00ff9c;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: 0.25s ease;
+  position: relative;
+}
+
+/* Medium Hover Glow */
+.nav-link:hover {
+  background: rgba(0, 255, 156, 0.08);
+  box-shadow: 0 0 6px #00ff9c;
+}
+
+/* ACTIVE PAGE → UNDERLINE ONLY */
+.nav-link.active {
+  color: #00ff9c;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Underline Effect */
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 10%;
+  bottom: -4px;
+  width: 80%;
+  height: 2px;
+  background: #00ff9c;
+  box-shadow: 0 0 6px #00ff9c;
+  border-radius: 2px;
+}
+
+/* Prevent hover changing active style */
+.nav-link.active:hover {
+  background: transparent;
+  box-shadow: none;
+}
+
+/* hidden state */
+.navbar.hide {
+  transform: translateY(-100%);
+}
+
+/* Left side */
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo {
+    height: 110px;
+    margin-left: 0px;
+}
+
+/* Right side links */
+.nav-right a {
+    margin-left: 28px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    color: #c7f9ff;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+/* Hover underline animation */
+.nav-right a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: -6px;
+    background: #00ffff;
+    transition: width 0.3s ease;
+}
+
+.nav-right a:hover::after {
+    width: 100%;
+}
+
+.nav-right a:hover {
+    color: #00ffff;
+}
+
+/* Login button */
+.nav-btn {
+    padding: 8px 20px;
+    border: 1px solid #00ffff;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0,255,255,0.4);
+}
+
+.nav-btn:hover {
+    background: #00ffff;
+    color: #020617;
+}

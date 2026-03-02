@@ -1,0 +1,16 @@
+.feature-list {
+  list-style: none;
+  padding: 0;
+}
+
+.feature-list li {
+  margin-bottom: 12px;
+  color: #cbd5e1;
+  font-size: 1.05rem;
+  transition: 0.2s ease;
+}
+
+.feature-list li:hover {
+  color: #00f5a0;
+  transform: translateX(5px);
+}

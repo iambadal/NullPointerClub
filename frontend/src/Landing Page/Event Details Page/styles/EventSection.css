@@ -1,0 +1,40 @@
+.event-section {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 16px;
+  margin-bottom: 50px;
+  border: 1px solid rgba(0, 217, 245, 0.2);
+  transition: 0.3s ease;
+}
+
+.event-section:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 40px rgba(0, 217, 245, 0.2);
+}
+
+.event-section h2 {
+  margin-bottom: 20px;
+  color: #38bdf8;
+}
+
+.event-section p {
+  color: #cbd5e1;
+  margin-bottom: 10px;
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+}
+
+.features-list li {
+  margin-bottom: 10px;
+  color: #cbd5e1;
+  transition: 0.2s ease;
+}
+
+.features-list li:hover {
+  color: #00f5a0;
+  transform: translateX(5px);
+}

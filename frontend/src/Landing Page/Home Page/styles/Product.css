@@ -1,0 +1,30 @@
+.product-section {
+  padding: 20px 8%;
+  text-align: center;
+}
+
+.product-title {
+  font-size: 2.5rem;
+  color: #00ff9c;
+  margin-bottom: 10px;
+}
+
+.product-subtitle {
+  color: #b6ffe0;
+  margin-bottom: 60px;
+  max-width: 650px;
+  margin-inline: auto;
+}
+
+.product-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}

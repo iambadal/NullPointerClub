@@ -1,0 +1,17 @@
+.events-list {
+  margin-bottom: 80px;
+}
+
+.events-list h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  align-items: stretch; 
+}

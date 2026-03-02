@@ -1,0 +1,31 @@
+.platform-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.platform-card {
+  background: #1e293b;
+  padding: 30px;
+  border-radius: 14px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.platform-card:hover {
+  transform: translateY(-6px);
+  border: 1px solid #00d9f5;
+  box-shadow: 0 15px 35px rgba(0, 217, 245, 0.15);
+}
+
+.platform-card h3 {
+  margin-bottom: 15px;
+  color: #00f5a0;
+  font-size: 1.2rem;
+}
+
+.platform-card p {
+  color: #cbd5e1;
+  line-height: 1.7;
+  font-size: 1rem;
+}

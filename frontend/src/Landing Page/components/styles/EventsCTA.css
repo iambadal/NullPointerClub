@@ -1,0 +1,12 @@
+.event-cta {
+  padding: 50px;
+  text-align: center;
+}
+
+.event-cta button {
+  background: #22c55e;
+  padding: 12px 22px;
+  border-radius: 6px;
+  border: none;
+  font-size: 16px;
+}

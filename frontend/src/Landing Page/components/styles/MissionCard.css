@@ -1,0 +1,30 @@
+.mission-card {
+  background: rgba(5, 10, 25, 0.85);
+  border: 1px solid rgba(0, 255, 255, 0.25);
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mission-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+}
+
+.mission-icon {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.mission-card h3 {
+  color: #00ff9c;
+  margin-bottom: 10px;
+}
+
+.mission-card p {
+  color: #b6ffe0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}

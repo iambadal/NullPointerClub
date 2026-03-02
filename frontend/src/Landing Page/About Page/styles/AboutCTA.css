@@ -1,0 +1,39 @@
+.about-cta {
+  text-align: center;
+  margin-top: 80px;
+  padding-top: 40px;
+  border-top: 1px solid #334155;
+}
+
+.about-cta h3 {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  color: #00d9f5;
+}
+
+.about-cta p {
+  max-width: 700px;
+  margin: auto;
+  color: #cbd5e1;
+  line-height: 1.7;
+}
+
+.cta-btn {
+  margin-top: 25px;
+  padding: 14px 35px;
+  background: transparent;
+  border: 2px solid #00d9f5;
+  border-radius: 10px;
+  font-weight: 600;
+  color: #00d9f5;
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+
+/* Hover Glow Effect */
+.cta-btn:hover {
+  background: linear-gradient(90deg, #00f5a0, #00d9f5);
+  color: #0f172a;
+  box-shadow: 0 0 15px rgba(0, 217, 245, 0.5);
+  transform: translateY(-1px);
+}

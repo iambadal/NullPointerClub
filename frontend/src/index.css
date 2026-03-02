@@ -1,0 +1,31 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Root Body */
+body {
+  min-height: 100vh;
+  background-color: #0f172a;   
+  color: #f1f5f9;              
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  display: flex;
+flex-wrap: wrap;
+gap: 1rem;
+margin-top: 80px;
+padding-bottom: 120px;
+}
+
+/* Remove default link underline */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}

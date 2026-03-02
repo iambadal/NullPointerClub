@@ -1,0 +1,20 @@
+{
+  "name": "nullpointerclub",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "frontend": "npm run dev --prefix frontend",
+    "backend": "npm run dev --prefix backend",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
+  },
+  "keywords": [],
+  "author": "Badal Pujhari",
+  "license": "ISC",
+  "description": "Full stack project combining React frontend and NodeJS backend.",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "concurrently": "^9.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "vite": "^7.3.1"
+  }
+}

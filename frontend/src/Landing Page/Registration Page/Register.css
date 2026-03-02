@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: radial-gradient(circle at top, #0f2027, #000000);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #00ff9c;
+}
+
+/* Container */
+.register-container {
+  background: rgba(10, 20, 20, 0.95);
+  padding: 40px 40px 30px;
+  width: 420px;
+  border-radius: 14px;
+  box-shadow: 0 0 30px rgba(0, 255, 156, 0.5);
+  text-align: center;
+  border: 1px solid rgba(0, 255, 156, 0.3);
+}
+
+.register-container h2 {
+  font-size: 26px;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  font-size: 13px;
+  margin-bottom: 15px;
+  color: #66ffcc;
+}
+
+/* Role Selector */
+.role-selector {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.role-selector label {
+  flex: 1;
+  margin: 0 3px;
+  cursor: pointer;
+}
+
+.role-selector input {
+  display: none;
+}
+
+.role-selector span {
+  display: block;
+  padding: 8px 0;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #00ff9c;
+  font-size: 12px;
+  text-align: center;
+  border: 2px solid #00ff9c;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 5px #00ff9c;
+}
+
+.role-selector input:checked + span {
+  background: #00ff9c;
+  color: #000;
+  box-shadow: 0 0 12px #00ff9c;
+  transform: scale(1.02);
+}
+
+/* Inputs */
+.input-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.input-group select {
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #00ff9c;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 14px 12px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #00ff9c;
+  border: 2px solid #00ff9c;
+  border-radius: 8px;
+  font-size: 18px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+  background: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 10px #00ff9c;
+  border-color: #66ffcc;
+}
+
+.input-group label {
+  position: absolute;
+  left: 12px;
+  top: 14px;
+  color: #66ffcc;
+  pointer-events: none;
+  transition: 0.3s;
+  font-size: 16px;
+  background: rgba(10, 20, 20, 0.9);
+  padding: 0 4px;
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label {
+  top: -12px;
+  font-size: 13px;
+  color: #00ff9c;
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 14px;
+  font-size: 17px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #00ff9c;
+  border: 2px solid #00ff9c;
+  border-radius: 25px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #00ff9c;
+}
+
+button:hover {
+  background: #00ff9c;
+  color: #000;
+  box-shadow: 0 0 20px #00ff9c;
+}
+
+/* Bottom Text */
+.login-text {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.login-text a {
+  color: #667eea;
+  text-decoration: none;
+}

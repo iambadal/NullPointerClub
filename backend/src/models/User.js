@@ -42,7 +42,7 @@ const userSchema = new mongoose.Schema(
 
     role: {
       type: String,
-      enum: ["admin","organizer", "participant"],
+      enum: ["admin","organiser", "participant"],
       default: "participant"
     },
 
@@ -53,5 +53,5 @@ const userSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-
+ 
 export default mongoose.model("User", userSchema);

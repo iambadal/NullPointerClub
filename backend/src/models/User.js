@@ -28,7 +28,7 @@ const userSchema = new mongoose.Schema(
     },
 
     phoneNumber: {
-      type: Number,
+      type: String,
       required: true,
       match: [/^\d{10}$/, "Phone number must be exactly 10 digits"]
     },
@@ -49,6 +49,23 @@ const userSchema = new mongoose.Schema(
     score: {
       type: Number,
       default: 0
+    },
+
+    emailVerified: {
+      type: Boolean,
+      default: false
+    },
+
+    emailOTP: {
+      type: String
+    },
+
+    resetOTP: {
+      type: String
+    },
+
+    resetOTPExpires: {
+      type: Date
     }
   },
   { timestamps: true }

@@ -9,6 +9,8 @@ import About from "./Landing Page/About Page/About-Page";
 import Navbar from "./Landing Page/components/Navbar";
 import Login from "./Landing Page/Login Page/Login";
 import Register from "./Landing Page/Registration Page/Register";
+import VerifyEmail from "./Landing Page/Email Verify Page/VerifyEmail";
+
 
 function App() {
   return (
@@ -24,9 +26,11 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/verify-email" element={<VerifyEmail />} />
       </Routes>
     </>
   );
 }
+
 
 export default App;

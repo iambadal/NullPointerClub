@@ -6,11 +6,18 @@ const Login = () => {
 
   const navigate = useNavigate();
 
+  const [mode, setMode] = useState("login"); 
+  const [errors, setErrors] = useState({});
+
   const [formData, setFormData] = useState({
     userId: "",
     password: "",
     role: ""
   });
+
+  const [email, setEmail] = useState("");
+  const [otp, setOtp] = useState("");
+  const [newPassword, setNewPassword] = useState("");
 
   const handleChange = (e) => {
     setFormData({
@@ -19,8 +26,22 @@ const Login = () => {
     });
   };
 
+  // LOGIN
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    let newErrors = {};
+
+    if (!formData.role) newErrors.role = "Please select a role";
+    if (!formData.userId) newErrors.userId = "User ID is required";
+    if (!formData.password) newErrors.password = "Password is required";
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    setErrors({});
 
     const res = await fetch("http://localhost:5500/api/auth/login", {
       method: "POST",
@@ -32,14 +53,56 @@ const Login = () => {
 
     const data = await res.json();
 
-    if (res.ok) {
-
+    if(res.ok){
       localStorage.setItem("token", data.token);
 
       alert("Login successful");
 
       navigate("/");
+    } else {
+      alert(data.message);
+    }
+  };
 
+  // SEND RESET OTP
+  const handleForgot = async (e) => {
+    e.preventDefault();
+
+    const res = await fetch("http://localhost:5500/api/auth/forgot-password", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ email })
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      alert("OTP sent to email");
+      setMode("reset");
+    } else {
+      alert(data.message);
+    }
+  };
+
+  // RESET PASSWORD
+  const handleReset = async (e) => {
+    e.preventDefault();
+
+    const res = await fetch("http://localhost:5500/api/auth/reset-password", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ email, otp, newPassword })
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      alert("Password reset successful");
+      setMode("login");
     } else {
       alert(data.message);
     }
@@ -48,36 +111,108 @@ const Login = () => {
   return (
     <div className="login-container">
 
-      <h2>Login</h2>
-      <p className="subtitle">Choose your role</p>
+      <h2>
+        {mode === "login" && "Login"}
+        {mode === "forgot" && "Forgot Password"}
+        {mode === "reset" && "Reset Password"}
+      </h2>
 
-      <form onSubmit={handleSubmit}>
+      <p className="subtitle">
+        {mode === "login" && "Choose your role"}
+        {mode === "forgot" && "Enter your email"}
+        {mode === "reset" && "Enter OTP and new password"}
+      </p>
 
-        <div className="role-selector">
-          <label>
-            <input type="radio" name="role" value="participant" onChange={handleChange} required />
-            <span>Participant</span>
-          </label>
+      {/* LOGIN FORM */}
+      {mode === "login" && (
+        <form onSubmit={handleSubmit}>
 
-          <label>
-            <input type="radio" name="role" value="organiser" onChange={handleChange} />
-            <span>Event Organiser</span>
-          </label>
-        </div>
+          <div className="role-selector">
+            <label>
+              <input type="radio" name="role" value="participant" onChange={handleChange}/>
+              <span>Participant</span>
+            </label>
 
-        <div className="input-group">
-          <input type="text" name="userId" onChange={handleChange} required />
-          <label>User ID</label>
-        </div>
+            <label>
+              <input type="radio" name="role" value="organiser" onChange={handleChange} />
+              <span>Event Organiser</span>
+            </label>
+          </div>
+          {errors.role && <p className="error">{errors.role}</p>}
 
-        <div className="input-group">
-          <input type="password" name="password" onChange={handleChange} required />
-          <label>Password</label>
-        </div>
+          <div className="input-group">
+            <input type="text" name="userId" onChange={handleChange} required />
+            <label>User ID</label>
+          </div>
+          {errors.userId && <p className="error">{errors.userId}</p>}
 
-        <button type="submit">Login</button>
+          <div className="input-group">
+            <input type="password" name="password" onChange={handleChange} required />
+            <label>Password</label>
+          </div>
+          {errors.password && <p className="error">{errors.password}</p>}
 
-      </form>
+          <button type="submit">Login</button>
+
+          <p className="forgot-password">
+            <span onClick={() => setMode("forgot")}>
+              Forgot Password?
+            </span>
+          </p>
+
+        </form>
+      )}
+
+      {/* FORGOT PASSWORD */}
+      {mode === "forgot" && (
+        <form onSubmit={handleForgot}>
+
+          <div className="input-group">
+            <input
+              type="email"
+              required
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <label>Email</label>
+          </div>
+
+          <button type="submit">Send OTP</button>
+
+          <p className="forgot-password">
+            <span onClick={() => setMode("login")}>
+              Back to Login
+            </span>
+          </p>
+
+        </form>
+      )}
+
+      {/* RESET PASSWORD */}
+      {mode === "reset" && (
+        <form onSubmit={handleReset}>
+
+          <div className="input-group">
+            <input
+              type="text"
+              required
+              onChange={(e) => setOtp(e.target.value)}
+            />
+            <label>OTP</label>
+          </div>
+
+          <div className="input-group">
+            <input
+              type="password"
+              required
+              onChange={(e) => setNewPassword(e.target.value)}
+            />
+            <label>New Password</label>
+          </div>
+
+          <button type="submit">Reset Password</button>
+
+        </form>
+      )}
 
       <p className="signup-text">
         Don't have an account?
@@ -88,4 +223,4 @@ const Login = () => {
   );
 };
 
-export default Login; 
+export default Login;

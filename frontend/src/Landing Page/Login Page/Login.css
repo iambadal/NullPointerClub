@@ -151,3 +151,21 @@ button:hover {
     color: #667eea;
     text-decoration: none;
 }
+
+.forgot-password{
+    margin-top: 15px;
+}
+.forgot-password span{
+  color:#00ff9c;
+  cursor:pointer;
+}
+
+.forgot-password span:hover{
+  opacity:0.8;
+}
+
+.error{
+  color:#ff4d4f;
+  font-size:13px;
+  margin-top:5px;
+}

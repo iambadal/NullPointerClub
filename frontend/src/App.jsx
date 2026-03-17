@@ -10,7 +10,8 @@ import Navbar from "./Landing Page/components/Navbar";
 import Login from "./Landing Page/Login Page/Login";
 import Register from "./Landing Page/Registration Page/Register";
 import VerifyEmail from "./Landing Page/Email Verify Page/VerifyEmail";
-
+import ProtectedRoute from "./Landing Page/components/ProtectedRoute";
+import Profile from "./Landing Page/Profile Page/Profile";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Navbar />
 
       <Routes>
+      {/* PUBLIC */}
         <Route path="/" element={<Home />} />
         <Route path="/events" element={<Events />} />
         <Route path="/events/:id" element={<EventDetailsPage />} />
@@ -27,6 +29,15 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/verify-email" element={<VerifyEmail />} />
+        <Route path="/profile" element={<Profile />} />
+
+      {/* ORGANISER ONLY */}
+        <Route path="/create-event"
+          element={
+            <ProtectedRoute roles={["organiser"]}>
+                <div>Create Event Page</div>
+            </ProtectedRoute>
+        }/>
       </Routes>
     </>
   );

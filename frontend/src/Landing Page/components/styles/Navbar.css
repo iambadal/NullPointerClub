@@ -74,45 +74,47 @@
     margin-left: 0px;
 }
 
-/* Right side links */
-.nav-right a {
-    margin-left: 28px;
-    text-decoration: none;
-    font-size: 0.95rem;
-    color: #c7f9ff;
-    position: relative;
-    transition: 0.3s ease;
+.nav-right{
+display:flex;
+align-items:center;
+gap:28px;
 }
 
-/* Hover underline animation */
-.nav-right a::after {
-    content: "";
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    left: 0;
-    bottom: -6px;
-    background: #00ffff;
-    transition: width 0.3s ease;
+/* Links */
+.nav-right a {
+text-decoration: none;
+font-size: 0.95rem;
+color: #c7f9ff;
+position: relative;
+transition: 0.3s ease;
 }
 
 .nav-right a:hover::after {
-    width: 100%;
+width: 100%;
 }
 
 .nav-right a:hover {
-    color: #00ffff;
+color: #00ffff;
 }
 
-/* Login button */
+/* Button */
 .nav-btn {
-    padding: 8px 20px;
-    border: 1px solid #00ffff;
-    border-radius: 4px;
-    box-shadow: 0 0 10px rgba(0,255,255,0.4);
+padding: 8px 20px;
+border: 1px solid #00ffff;
+border-radius: 4px;
+box-shadow: 0 0 10px rgba(0,255,255,0.4);
 }
 
 .nav-btn:hover {
-    background: #00ffff;
-    color: #020617;
+background: #00ffff;
+color: #020617;
+}
+
+/* Avatar */
+.nav-avatar{
+width:40px;
+height:40px;
+border-radius:50%;
+cursor:pointer;
+object-fit:cover;
 }

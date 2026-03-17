@@ -53,14 +53,21 @@ const Login = () => {
 
     const data = await res.json();
 
-    if(res.ok){
+    if (res.ok) {
       localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify({
+      ...data.user,
+      profilePicture: data.user.profilePicture || "",
+      gender: data.user.gender || "male"
+      }));
 
       alert("Login successful");
 
-      navigate("/");
-    } else {
-      alert(data.message);
+      if (data.user.role === "organiser") {
+        navigate("/create-event");
+      } else {
+        navigate("/events");
+      }
     }
   };
 

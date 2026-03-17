@@ -1,14 +1,21 @@
 import express from "express";
-import { createEvent } from "../controllers/event.controller.js";
 import authMiddleware from "../middleware/auth.middleware.js";
 import roleMiddleware from "../middleware/role.middleware.js";
 
 const router = express.Router();
-router.post(
-  "/",
+
+router.get(
+  "/dashboard",
   authMiddleware,
-  roleMiddleware("admin", "organiser"),
-  createEvent
+  roleMiddleware("admin"),
+  (req, res) => {
+
+    res.json({
+      message: "Welcome Admin",
+      user: req.user
+    });
+
+  }
 );
 
 export default router;
